@@ -16,9 +16,22 @@ public class TestBase {
 
     @BeforeAll
     static void settingURI() {
-        Configuration.baseUrl = "https://demoqa.com";
         RestAssured.baseURI = "https://demoqa.com";
-        Configuration.browserSize = "1920x1080";
-        Configuration.pageLoadStrategy = "eager";
+        String browser = System.getProperty("browser", "chrome");
+        String browserSize = System.getProperty("browserSize", "1920x1080");
+        String remote = System.getProperty("remote","https://user1:1234@selenoid.autotests.cloud/wd/hub");
+        String browserVersion = System.getProperty("browserVersion","100.0");
+        Configuration.browser = browser;
+        Configuration.browserSize = browserSize;
+        Configuration.baseUrl = "https://demoqa.com";
+        Configuration.remote = remote;
+        Configuration.browserVersion = browserVersion;
+
     }
 }
+
+
+//                Configuration.baseUrl = "https://demoqa.com";
+//                RestAssured.baseURI = "https://demoqa.com";
+//                Configuration.browserSize = "1920x1080";
+//                Configuration.pageLoadStrategy = "eager";
