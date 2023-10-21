@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class UserProfilePage {
-    public static void openUserProfileWithCookies(String userId,String token, String expires) {
+    public static void openUserProfileWithCookies(String userId, String token, String expires) {
         open("/favicon.ico");
         getWebDriver().manage().addCookie(new Cookie("userID", userId));
         getWebDriver().manage().addCookie(new Cookie("token", token));
